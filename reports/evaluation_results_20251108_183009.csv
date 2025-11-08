@@ -1,0 +1,31 @@
+query,site,type,notes,top_1,top_1_score,top_2,top_2_score,top_3,top_3_score,latency_ms,total_results,normalized_query,numeric_filters,judgement
+ма,Store A,open,Mobile keystroke for butter/oil,Энергетический напиток маракуйя «Volt» 500мл,63.73,Филе грудки индейки в маринаде «ProteinPro» 700г,50.81,Филе грудки индейки в маринаде «ProteinPro» 5кг,50.81,29.2,107,ма,{},✅ RELEVANT
+йогурт гр,Store A,open,Partial multi-word,Йогурт греческий черника «Mediterran» 140г,203.59,Йогурт греческий натуральный «Mykonos» 900г,203.59,Йогурт греческий черника «Mediterran» 140г,203.59,19.6,63,йогурт гр,{},✅ RELEVANT
+bon pa,Store A,open,Foreign brand transliteration,,,,,,,12.1,0,ищт зф,{},❌ NO_RESULTS
+холс,Store B,open,Brand typed in Cyrillic,,,,,,,10.31,0,холс,{},❌ NO_RESULTS
+крем для рук,Store B,open,Full phrase but should tolerate prefixes,Крем для рук антибактериальный «Atelier Skin» 50мл,50.44,Крем для рук коллаген «Atelier Skin» 50мл,50.44,Крем для рук коллаген «Herbal Line» 100мл,50.44,16.04,175,крем для рук,{},✅ RELEVANT
+масло раст 10л,Store C,open,B2B volume intent,Масло подсолнечное premium «Южное» 900мл,16.71,Масло подсолнечное premium «Helio» 10000мл,16.71,Масло подсолнечное premium «Helio» 500мл,16.71,16.29,67,масло раст,"{""volume"": ""10""}",✅ RELEVANT
+кар тофель,Store D,open,Broken spacing,Шоколад премиальный с карамелью «Nordic Choco» 200г,26.74,Шоколад премиальный с карамелью «Nordic Choco» 80г,26.74,,,12.61,2,кар тофель,{},✅ RELEVANT
+xfq,Store E,open,Wrong keyboard layout for чай,Чай листовой чёрный «Samokat» 90г,11.77,Чай листовой матча «Ahmad» 75г,11.77,Чай листовой улун «Ahmad» 250г,11.77,11.94,78,чай,{},✅ RELEVANT
+adapter usb c,Store E,open,English technical query,Мука пшеничная HoReCa 25 кг «Старый Мельник» 900г,6.2,Масло сливочное крестьянское «Северное поле» 225г,6.2,Крупа гречневая быстрого приготовления «Северные поля» 900г,6.2,23.75,319,фвфзеук гыи с,{},✅ RELEVANT
+pr,Store F,open,Wine prefix (prosecco/premium),,,,,,,9.89,0,зк,{},❌ NO_RESULTS
+riesling mos,Store F,open,Region-specific wine,,,,,,,8.67,0,кшуыдштп ьщы,{},❌ NO_RESULTS
+памперсы 3,Store D,open,Size constraint,Подгузники детские размер 3 «EcoBaby» 60шт,8.24,Подгузники детские размер 2 «PampKids» 32шт,8.24,Подгузники детские размер 3 «EcoBaby» 32шт,8.24,15.79,73,памперсы 3,{},✅ RELEVANT
+масло сл,Store A,open,Two-letter stop,Масло сливочное безлактозное «Teos» 1кг,72.86,Масло сливочное премиум «Teos» 200г,72.86,Масло сливочное безлактозное «Teos» 1кг,72.86,11.35,67,масло сл,{},✅ RELEVANT
+филе инд,Store A,open,Protein intent,Филе грудки индейки HoReCa «FarmLine» 5кг,26.27,Филе грудки индейки охлажденное «ProteinPro» 5кг,26.27,Филе грудки индейки HoReCa «FarmLine» 700г,26.27,13.51,21,филе инд,{},✅ RELEVANT
+teos,Store A,open,Brand prefix,,,,,,,8.08,0,еущы,{},❌ NO_RESULTS
+греч не,Store C,open,Cyrillic split,Йогурт греческий черника «Mediterran» 140г,14.71,Йогурт греческий натуральный «Mykonos» 900г,14.71,Йогурт греческий черника «Mediterran» 140г,14.71,16.83,47,греч не,{},✅ RELEVANT
+prosecco ro,Store F,open,Latin multi-word,,,,,,,9.32,0,зкщыуссщ кщ,{},❌ NO_RESULTS
+джин то,Store F,open,Cocktail ingredient,Джин премиальный grapefruit «Nordic Gin» 1000мл,23.26,Джин премиальный grapefruit «Nordic Gin» 1000мл,23.26,Джин премиальный grapefruit «Garage Barrel» 500мл,23.26,14.03,169,джин то,{},✅ RELEVANT
+хозяйст мыло,Store D,open,Household goods,Батарейки AA alkaline «VoltEdge» 4шт,4.97,Пакеты для мусора 60л «StrongHold» 30шт,4.97,Полотенца бумажные эко «MaxiRoll» 2шт,4.97,10.03,111,хозяйст мыло,{},✅ RELEVANT
+power bank 20,Store E,open,Numeric suffix,Power Bank 20000mAh «HyperCell» 1шт,4.2,Фольга алюминиевая 20м «KitchenLine» 1шт,4.2,Power Bank 20000mAh «VoltEdge» 1шт,4.2,15.52,83,зщцук ифтл 20,{},✅ RELEVANT
+сыр гауда,Store C,open,Category + brand,Сыр гауда кусок «ChefPro» 2кг,40.55,Сыр гауда для сендвичей «ChefPro» 200г,40.11,Сыр гауда кусок «Dutch Yard» 200г,39.85,12.63,47,сыр гауда,{},✅ RELEVANT
+diap night,Store D,open,Latin shortcut for diapers,,,,,,,10.38,0,вшфз тшпре,{},❌ NO_RESULTS
+cat adult,Store C,open,Pet food intent,,,,,,,8.87,0,сфе фвгде,{},❌ NO_RESULTS
+dog hypo,Store C,open,Hypoallergenic dog food,,,,,,,15.66,0,вщп рнзщ,{},❌ NO_RESULTS
+san pelle,Store F,open,Sparkling water brand,,,,,,,8.5,0,ыфт зудду,{},❌ NO_RESULTS
+посуд моющ,Store D,open,Abbreviated dish soap,Средство для мытья посуды для детской посуды «AllDish» 450мл,27.19,Средство для мытья посуды для детской посуды «BioClean» 450мл,27.19,Средство для мытья посуды для детской посуды «Crystal Drop» 1500мл,26.67,15.85,17,посуд моющ,{},✅ RELEVANT
+лампа led е27,Store E,open,Mixed alphabet technical,Лампа LED E27 «Volt» 4шт,24.29,Лампа LED E27 «EcoLight» 2шт,24.29,Лампа LED E27 «Volt» 4шт,24.29,11.22,16,лампа дув е27,{},✅ RELEVANT
+мешки 120л,Store D,open,Trash bags with volume,,,,,,,9.0,0,мешки,"{""volume"": ""120""}",❌ NO_RESULTS
+круп греч,Store C,open,Abbreviated grocery,Крупа гречневая ядрица «Русская крупа» 15кг,109.39,Крупа гречневая ядрица «Русская крупа» 900г,109.39,Крупа гречневая organic «Русская крупа» 15кг,109.39,15.61,41,круп греч,{},✅ RELEVANT
+рыба фил,Store B,open,Frozen fish block,Рыба минтай блок филе «ChefPro» 5кг,26.61,Рыба минтай блок филе «HoReCaFish» 10кг,26.61,Рыба минтай блок филе «HoReCaFish» 10кг,26.61,12.31,56,рыба фил,{},✅ RELEVANT
