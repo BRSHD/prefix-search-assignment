@@ -1,6 +1,5 @@
 from fastapi import APIRouter, Query, HTTPException
 from elasticsearch import Elasticsearch
-from utils.text_processing import normalize_query
 import json
 
 router = APIRouter()

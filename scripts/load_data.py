@@ -49,25 +49,79 @@ def parse_xml_to_json(xml_file_path):
     return products
 
 def create_index(es_client, index_name="products"):
-    """Создаем простой индекс"""
+    """Создаем индекс в Elasticsearch с исправленной схемой"""
     
     # Удаляем индекс если существует
     if es_client.indices.exists(index=index_name):
         es_client.indices.delete(index=index_name)
         print(f"🗑️ Удален старый индекс {index_name}")
     
-    # ПРОСТАЯ схема - главное чтобы работало
+    # ИСПРАВЛЕННАЯ схема - убрали analyzer из keyword полей
     mapping = {
         "settings": {
+            "analysis": {
+                "analyzer": {
+                    "prefix_analyzer": {
+                        "type": "custom",
+                        "tokenizer": "standard",
+                        "filter": ["lowercase", "asciifolding", "edge_ngram_filter"]
+                    },
+                    "search_analyzer": {
+                        "type": "custom", 
+                        "tokenizer": "standard",
+                        "filter": ["lowercase", "asciifolding"]
+                    }
+                },
+                "filter": {
+                    "edge_ngram_filter": {
+                        "type": "edge_ngram",
+                        "min_gram": 2,  # Начинаем с 2 символов для стабильности
+                        "max_gram": 15
+                    }
+                }
+            },
             "number_of_shards": 1,
             "number_of_replicas": 0
         },
         "mappings": {
             "properties": {
                 "id": {"type": "keyword"},
-                "name": {"type": "text"},
-                "category": {"type": "text"},
-                "brand": {"type": "text"},
+                "name": {
+                    "type": "text",
+                    "analyzer": "prefix_analyzer",
+                    "search_analyzer": "search_analyzer",
+                    "fields": {
+                        "keyword": {"type": "keyword"},  # ИСПРАВЛЕНО: убран analyzer
+                        "simple": {
+                            "type": "text",
+                            "analyzer": "standard"
+                        }
+                    }
+                },
+                "category": {
+                    "type": "text",
+                    "analyzer": "prefix_analyzer",
+                    "search_analyzer": "search_analyzer",
+                    "fields": {
+                        "keyword": {"type": "keyword"},  # ИСПРАВЛЕНО: убран analyzer
+                        "simple": {
+                            "type": "text", 
+                            "analyzer": "standard"
+                        }
+                    }
+                },
+                "brand": {
+                    "type": "text",
+                    "analyzer": "prefix_analyzer",
+                    "search_analyzer": "search_analyzer", 
+                    "fields": {
+                        "keyword": {"type": "keyword"},  # ИСПРАВЛЕНО: убран analyzer
+                        "simple": {
+                            "type": "text",
+                            "analyzer": "standard"
+                        }
+                    }
+                },
                 "weight": {"type": "text"},
                 "package_size": {"type": "text"},
                 "keywords": {"type": "text"},
@@ -108,6 +162,7 @@ def load_data_to_elasticsearch(products, es_client, index_name="products"):
     print(f"🎉 Успешно загружено {success_count}/{len(products)} продуктов")
 
 def main():
+    """Основная функция загрузки данных"""
     print("🚀 НАЧИНАЕМ ЗАГРУЗКУ ДАННЫХ")
     print("=" * 50)
     
