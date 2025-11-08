@@ -29,7 +29,7 @@ python main.py
 ## Запуск тестирования
 
 ```bash
-python scripts/real_evaluate.py
+python scripts/evaluate.py
 ```
 
 ## Схема индекса и логика ранжирования
